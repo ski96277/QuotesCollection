@@ -102,27 +102,25 @@ class BanglaQuotesActivity : AppCompatActivity() {
 
         progressBar.visibility=View.VISIBLE
         firebaseFirestore!!.collection(collection.toString())
-            .get().addOnCompleteListener(object : OnCompleteListener<QuerySnapshot> {
-                override fun onComplete(task: Task<QuerySnapshot>) {
-                    if (task.isSuccessful) {
-                        if (task.result!!.size() > 0) {
-                            for (snapshot in task.result!!) {
-                                val banglaQuotes = snapshot.toObject(
-                                    BanglaQuotes::class.java
-                                )
-                                banglaQuotesArrayList!!.add(banglaQuotes)
-                            }
-                            progressBar.visibility=View.GONE
-                            banglaQuotesDetailsAdapter =
-                                BanglaQuotesDetailsAdapter(context, banglaQuotesArrayList)
-                            recyclerView?.setAdapter(banglaQuotesDetailsAdapter)
-                        }else{
-                            progressBar.visibility=View.GONE
-                            Toast.makeText(context, "NO Data Found", Toast.LENGTH_SHORT).show();
+            .get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    if (task.result!!.size() > 0) {
+                        for (snapshot in task.result!!) {
+                            val banglaQuotes = snapshot.toObject(
+                                BanglaQuotes::class.java
+                            )
+                            banglaQuotesArrayList!!.add(banglaQuotes)
                         }
+                        progressBar.visibility=View.GONE
+                        banglaQuotesDetailsAdapter =
+                            BanglaQuotesDetailsAdapter(context, banglaQuotesArrayList)
+                        recyclerView?.setAdapter(banglaQuotesDetailsAdapter)
+                    }else{
+                        progressBar.visibility=View.GONE
+                        Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }).addOnFailureListener {
+            }.addOnFailureListener {
                 progressBar.visibility=View.GONE
             }
 
