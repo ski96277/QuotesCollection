@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "934350682220",
+    "firebase_url": "https://sayingsquotes-5216e.firebaseio.com",
+    "project_id": "sayingsquotes-5216e",
+    "storage_bucket": "sayingsquotes-5216e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934350682220:android:bd0d81e5a4855a564d0049",
+        "android_client_info": {
+          "package_name": "imransk.ml.SayingsQuotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934350682220-vcoigggvolmne4bfjbacsb49oqstl0i5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "imransk.ml.SayingsQuotes",
+            "certificate_hash": "1559f6dda8b88294c61aee9a483d81314d23316f"
+          }
+        },
+        {
+          "client_id": "934350682220-a7qge8d680k3aqksssaikeafkoehtj3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4jmNwLq3tmUG7ADbcmXX5HKB1jCdoWDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934350682220-a7qge8d680k3aqksssaikeafkoehtj3t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

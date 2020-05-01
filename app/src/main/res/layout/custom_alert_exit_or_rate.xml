@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="@color/white"
+            android:text="Quit !"
+
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="20sp"
+            android:text="Are You Sure, You Want To Exit ?"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60sp"
+            android:text="No"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:id="@+id/no_button_ID"
+            android:layout_margin="10sp"
+            android:textSize="20sp"/>
+        <Button
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+
+            android:id="@+id/yes_btn_ID"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10sp"
+            android:gravity="center"
+            android:layout_height="60sp"
+            android:text="YES"
+            android:textSize="20sp"/>
+        <Button            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60sp"
+            android:text="Rate us"
+            android:gravity="center"
+            android:id="@+id/rate_btn_ID"
+            android:layout_margin="10sp"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
