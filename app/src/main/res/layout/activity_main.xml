@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:are="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,220 +11,62 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarWriteOwnQuotes"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="left|center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/saveIcoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Category"
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categeryListRecyclerID"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="1dp"
-        android:layout_weight="1.1"
-        android:visibility="gone"
-        tools:listitem="@layout/item_category" />
-<ScrollView
-    android:id="@+id/firstLayout"
-    android:fillViewport="true"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1.1">
-    <LinearLayout
-        android:id="@+id/myQuotesLayout"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="1dp"
-        android:orientation="vertical"
-        android:visibility="visible">
-        <com.chinalwb.are.AREditText
-            android:id="@+id/arEditText"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:gravity="top"
-            android:layout_margin="5dp"
-            android:hint="Write here..."
-            android:textSize="50sp" />
-        <LinearLayout
-            android:id="@+id/bottombar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".2"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal">
-            <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
-                android:id="@+id/areToolbar"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:outlineSpotShadowColor="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:gravity="center_vertical" />
+        android:layout_below="@id/toolbar"
+        android:visibility="visible"
+        tools:listitem="@layout/item_category" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:minHeight="250dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:orientation="vertical"
-            android:background="@drawable/ten"
-            android:focusable="true">
-            <LinearLayout
-                android:id="@+id/imageLayout"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/ten"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:id="@+id/xView"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:text="Double Tap"
-                    android:gravity="center"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:focusable="true"
-                    android:textColor="@color/colorwhite"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/myapp"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight=".1"
-                    android:gravity="center"
-                    android:text="#sayings_quotes"
-                    android:focusable="true"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".2"
-                android:layout_gravity="bottom"
-                android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/copyBtn"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_content_copy_black_24dp"
-                    android:focusable="true"
-                    android:paddingLeft="20dp"
-                    android:text="@android:string/copy"
-                    android:textColor="@color/colorwhite"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/colorPickerBtn"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/xView" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="right"
+        android:id="@+id/fabIcon"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:rippleColor="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:src="@drawable/ic_edit_black_24dp" />
 
 
-                <Button
-                    android:id="@+id/colorPickerBtn"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_edit_white_24dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:background="@android:color/transparent"
-
-                    android:focusable="true"
-                    android:text="Color"
-                    android:textColor="@color/colorwhite"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/shareBtn"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/copyBtn"
-                    app:layout_constraintTop_toBottomOf="@+id/xView"
-                    tools:ignore="MissingConstraints" />
-                <Button
-                    android:id="@+id/shareBtn"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_share_black_24dp"
-
-                    android:focusable="true"
-                    android:text="share"
-                    android:textColor="@color/colorwhite"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/colorPickerBtn"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/colorPickerBtn" />
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-</ScrollView>
-    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
-        android:id="@+id/bottom_navigation_view_linear"
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_gravity="bottom"
-        android:layout_weight=".1"
-        android:background="@color/colorPrimary"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        android:padding="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/categeryListRecyclerID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            app:bt_active="true"
-            android:minHeight="10dp"
-            app:bt_colorActive="#000"
-            app:bt_colorInactive="#000"
-            app:bt_icon="@drawable/ic_edit_black_24dp"
-            app:bt_title="My Quotes" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_home2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            app:bt_active="true"
-            android:minHeight="10dp"
-            app:bt_colorActive="#000"
-            app:bt_colorInactive="#FFF"
-            app:bt_icon="@drawable/ic_save_black_24dp"
-            app:bt_title="Quotes" />
-
-
-    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
-
-
-</LinearLayout>
+</RelativeLayout>

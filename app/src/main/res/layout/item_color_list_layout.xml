@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ImageView
+    android:id="@+id/colorItemImageViewID"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_40sdp"
+    android:background="#fff"
+    android:layout_margin="@dimen/_15sdp"
+    android:layout_height="@dimen/_40sdp">
+
+</ImageView>

@@ -20,13 +20,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azeesoft.lib.colorpicker.ColorPickerDialog
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import imransk.ml.SayingsQuotes.R
 import imransk.ml.SayingsQuotes.adapter.CategeryDetailsAdapter
-import imransk.ml.SayingsQuotes.adapter.RecyclerItemClickListenr
 import imransk.ml.SayingsQuotes.database.DatabaseAccess
 import imransk.ml.SayingsQuotes.model.CategoryDetailsClass
+import imransk.ml.myquotesjava.adapter.FontStyleListAdapter
+import imransk.ml.myquotesjava.adapter.RecyclerItemClickListenr
 import kotlinx.android.synthetic.main.activity_categery_details.*
-import kotlinx.android.synthetic.main.item_details.*
+import kotlinx.android.synthetic.main.activity_write_own_quotes.*
+import kotlinx.android.synthetic.main.font_style_alert.*
 import kotlinx.android.synthetic.main.item_details.view.*
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -60,13 +63,55 @@ class CategeryDetailsActivity : AppCompatActivity() {
         imagelist.add(R.drawable.eleven)
         imagelist.add(R.drawable.tweelve)
         imagelist.add(R.drawable.thirtheen)
+        imagelist.add(R.drawable.facebook)
         imagelist.add(R.drawable.angry)
         imagelist.add(R.drawable.attitude)
         imagelist.add(R.drawable.awkward_moment)
         imagelist.add(R.drawable.beatiful)
         imagelist.add(R.drawable.bike)
         imagelist.add(R.drawable.brother)
-        imagelist.add(R.drawable.emotional)
+        imagelist.add(R.drawable.cheat)
+        imagelist.add(R.drawable.clever)
+        imagelist.add(R.drawable.cool)
+        imagelist.add(R.drawable.cute)
+        imagelist.add(R.drawable.flirt)
+        imagelist.add(R.drawable.forgiveness)
+        imagelist.add(R.drawable.friends)
+        imagelist.add(R.drawable.goodnight)
+        imagelist.add(R.drawable.happiness)
+        imagelist.add(R.drawable.hate_you)
+        imagelist.add(R.drawable.hot)
+        imagelist.add(R.drawable.hurt)
+        imagelist.add(R.drawable.inspiretional)
+        imagelist.add(R.drawable.jealous)
+        imagelist.add(R.drawable.life)
+        imagelist.add(R.drawable.live_quotes)
+        imagelist.add(R.drawable.lonley)
+        imagelist.add(R.drawable.love)
+        imagelist.add(R.drawable.marriage)
+        imagelist.add(R.drawable.monday)
+        imagelist.add(R.drawable.mother)
+        imagelist.add(R.drawable.moving_on)
+        imagelist.add(R.drawable.music)
+        imagelist.add(R.drawable.nine)
+        imagelist.add(R.drawable.pain)
+        imagelist.add(R.drawable.party)
+        imagelist.add(R.drawable.pets)
+        imagelist.add(R.drawable.quotes)
+        imagelist.add(R.drawable.releationship)
+        imagelist.add(R.drawable.romantic)
+        imagelist.add(R.drawable.school)
+        imagelist.add(R.drawable.selfish)
+        imagelist.add(R.drawable.sick)
+        imagelist.add(R.drawable.sister)
+        imagelist.add(R.drawable.smile)
+        imagelist.add(R.drawable.summer)
+        imagelist.add(R.drawable.sweet)
+        imagelist.add(R.drawable.technology)
+        imagelist.add(R.drawable.tired)
+        imagelist.add(R.drawable.trust)
+        imagelist.add(R.drawable.wife)
+        imagelist.add(R.drawable.work)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(
@@ -88,7 +133,7 @@ class CategeryDetailsActivity : AppCompatActivity() {
         var id: Int = intent.getIntExtra("id", 0);
         databaseAccess = DatabaseAccess(context)
         categoryDetailsClassArrayList = databaseAccess.getDetailsCategory(id)
-        Toast.makeText(context, "${id}", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "${id}", Toast.LENGTH_SHORT).show();
         
         if (id == 3) { // angry
             var categoryDetailsClass = CategoryDetailsClass(-1, -1, "Get mad, then get over it.", 0)
@@ -211,6 +256,10 @@ class CategeryDetailsActivity : AppCompatActivity() {
                             Toast.makeText(context, "Copied..", Toast.LENGTH_SHORT).show();
                         }
 
+                        view.fontBtn.setOnClickListener {
+showFontStyleBottomAlert(view)
+                        }
+
                         view.colorPickerBtn.setOnClickListener {
 
                             val colorPickerDialog: ColorPickerDialog =
@@ -276,6 +325,85 @@ class CategeryDetailsActivity : AppCompatActivity() {
 
 
     }
+
+
+    private fun showFontStyleBottomAlert(viewTV: View) {
+        var fontNameList = ArrayList<String>()
+        var fontFileList = ArrayList<String>()
+
+        fontNameList.add("alex-brush")
+        fontNameList.add("Aller")
+        fontNameList.add("amatic")
+//        fontNameList.add("blackjack")
+        fontNameList.add("Caviar-Dreams")
+//        fontNameList.add("chunkfive")
+//        fontNameList.add("grand-hotel")
+//        fontNameList.add("great-vibes")
+        fontNameList.add("kurri-island")
+        fontNameList.add("lato")
+//        fontNameList.add("League-Gothic")
+//        fontNameList.add("montserrat")
+        fontNameList.add("open-sans")
+        fontNameList.add("ostrich-sans")
+        fontNameList.add("oswald")
+        fontNameList.add("pacifico")
+//        fontNameList.add("playfair-display")
+//        fontNameList.add("quicksand")
+        fontNameList.add("raleway")
+        fontNameList.add("roboto")
+//        fontNameList.add("sofia")
+//        fontNameList.add("source-sans-pro")
+
+        fontFileList.add("fonts/AlexBrushRegular.ttf")
+        fontFileList.add("fonts/Aller_Rg.ttf")
+        fontFileList.add("fonts/AmaticSC_Regular.ttf")
+        fontFileList.add("fonts/CaviarDreams_Italic.ttf")
+        fontFileList.add("fonts/KurriIslandItaPERSONAL_Thin.ttf")
+        fontFileList.add("fonts/Lato_Black.ttf")
+        fontFileList.add("fonts/OpenSans_LightItalic.ttf")
+        fontFileList.add("fonts/ostrich_regular.ttf")
+        fontFileList.add("fonts/Oswald_ExtraLight.ttf")
+        fontFileList.add("fonts/Pacifico.ttf")
+        fontFileList.add("fonts/Raleway_Italic.ttf")
+        fontFileList.add("fonts/Roboto_Light.ttf")
+
+
+        val bottomalertDialog = BottomSheetDialog(context);
+        bottomalertDialog.setContentView(R.layout.font_style_alert)
+        bottomalertDialog.fontStyleRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        var fontStyleListAdapter =
+            FontStyleListAdapter(this@CategeryDetailsActivity, fontNameList, fontFileList)
+        bottomalertDialog.fontStyleRecyclerView.adapter = fontStyleListAdapter
+
+        bottomalertDialog.fontStyleRecyclerView.addOnItemTouchListener(
+            RecyclerItemClickListenr(context, bottomalertDialog.fontStyleRecyclerView,
+                object : RecyclerItemClickListenr.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+
+                        val tf = Typeface.createFromAsset(
+                            context.assets,
+                            fontFileList[position]
+                        )
+                        viewTV.xView.typeface = tf
+
+
+                    }
+
+                    override fun onItemLongClick(view: View?, position: Int) {
+
+                        return
+                    }
+
+                })
+        )
+
+        bottomalertDialog.show()
+
+
+    }
+
 
 
 }

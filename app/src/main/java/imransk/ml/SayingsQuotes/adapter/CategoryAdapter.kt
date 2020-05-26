@@ -29,7 +29,7 @@ class CategoryAdapter(var context: Context, var categeryList: ArrayList<Category
 
             }
             if (s.equals("bangla",ignoreCase = true)){
-                itemView.categeryImageTV.setBackgroundResource(R.drawable.bangladesh)
+                itemView.categeryImageTV.setBackgroundResource(R.drawable.bangla_icon)
 
             }
             if (s.equals("Angry",ignoreCase = true)){

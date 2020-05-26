@@ -32,7 +32,7 @@
             android:textColor="#000"
             android:layout_marginBottom="20sp"
             android:layout_marginTop="20sp"
-            android:text="Are You Sure, You Want To Exit ?"
+            android:text="Do You Want To Rate Us ?"
             android:gravity="center"
             android:layout_gravity="center"/>
     </LinearLayout>
@@ -47,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="60sp"
-            android:text="No"
+            android:text="Cancel"
             android:textColor="@color/white"
             android:background="@color/colorPrimaryDark"
             android:gravity="center"
@@ -64,7 +64,7 @@
             android:layout_margin="10sp"
             android:gravity="center"
             android:layout_height="60sp"
-            android:text="YES"
+            android:text="No"
             android:textSize="20sp"/>
         <Button            android:textColor="@color/white"
             android:background="@color/colorPrimaryDark"
@@ -72,7 +72,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="60sp"
-            android:text="Rate us"
+            android:text="Yes"
             android:gravity="center"
             android:id="@+id/rate_btn_ID"
             android:layout_margin="10sp"

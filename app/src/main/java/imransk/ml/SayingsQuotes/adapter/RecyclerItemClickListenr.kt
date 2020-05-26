@@ -1,11 +1,10 @@
-package imransk.ml.SayingsQuotes.adapter
+package imransk.ml.myquotesjava.adapter
 
 import android.content.Context
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-
 
 class RecyclerItemClickListenr(context: Context, recyclerView: RecyclerView, private val mListener: OnItemClickListener?) : RecyclerView.OnItemTouchListener {
 

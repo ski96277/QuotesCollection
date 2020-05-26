@@ -8,28 +8,25 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.Typeface
 import android.net.Uri
-import android.os.*
+import android.os.Build
+import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.NonNull
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.azeesoft.lib.colorpicker.ColorPickerDialog
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
 import imransk.ml.SayingsQuotes.R
 import imransk.ml.SayingsQuotes.adapter.BanglaQuotesDetailsAdapter
-import imransk.ml.SayingsQuotes.adapter.RecyclerItemClickListenr
 import imransk.ml.SayingsQuotes.model.BanglaQuotes
+import imransk.ml.myquotesjava.adapter.RecyclerItemClickListenr
 import kotlinx.android.synthetic.main.activity_bangla_quotes.*
-import kotlinx.android.synthetic.main.item_details.*
 import kotlinx.android.synthetic.main.item_details.view.*
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -49,6 +46,10 @@ class BanglaQuotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bangla_quotes)
+        // Hide the status bar.
+        val actionBar: android.app.ActionBar? = actionBar
+        actionBar?.hide()
+
         recyclerView = findViewById(R.id.banglaQuotesRecylerView)
         firebaseFirestore = FirebaseFirestore.getInstance()
         context=this;
