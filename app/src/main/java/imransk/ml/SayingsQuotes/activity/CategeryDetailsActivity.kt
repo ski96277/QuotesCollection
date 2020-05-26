@@ -134,94 +134,145 @@ class CategeryDetailsActivity : AppCompatActivity() {
         databaseAccess = DatabaseAccess(context)
         categoryDetailsClassArrayList = databaseAccess.getDetailsCategory(id)
 //        Toast.makeText(context, "${id}", Toast.LENGTH_SHORT).show();
-        
+
         if (id == 3) { // angry
             var categoryDetailsClass = CategoryDetailsClass(-1, -1, "Get mad, then get over it.", 0)
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1, "Anger is an acid that can do more harm to the vessel in which it is stored than to anything on which it is poured.", 0)
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1,
+                -1,
+                "Anger is an acid that can do more harm to the vessel in which it is stored than to anything on which it is poured.",
+                0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1, -1,
                 "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.\n" +
-                    "\n", 0)
+                        "\n", 0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
         if (id == 5) { // Attitude
-            var categoryDetailsClass = CategoryDetailsClass(-1, -1, "A positive attitude causes a chain reaction of positive thoughts, events and outcomes. It is a catalyst and it sparks extraordinary results.- Wade Boggs"
-                    , 0)
+            var categoryDetailsClass = CategoryDetailsClass(
+                -1,
+                -1,
+                "A positive attitude causes a chain reaction of positive thoughts, events and outcomes. It is a catalyst and it sparks extraordinary results.- Wade Boggs"
+                ,
+                0
+            )
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1, "If you have a positive attitude and constantly strive to give your best effort, eventually you will overcome your immediate problems and find you are ready for greater challenges.- Pat Riley", 0)
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1,
+                -1,
+                "If you have a positive attitude and constantly strive to give your best effort, eventually you will overcome your immediate problems and find you are ready for greater challenges.- Pat Riley",
+                0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
-                "I don't have a very positive attitude towards rappers. Miriam Margolyes", 0)
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1, -1,
+                "I don't have a very positive attitude towards rappers. Miriam Margolyes", 0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
         if (id == 7) { // awkward moment
-            var categoryDetailsClass = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass = CategoryDetailsClass(
+                -1, -1,
                 "Move out of your comfort zone. You can only grow if you are willing to feel awkward and uncomfortable when you try something new. -Brian Tracy"
 
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1, "Getting stopped in the middle of the lingerie section, when you're trying to stock up on a few things, by an older man who wants a selfie is a little bit awkward... but I don't let that get in the way of me trying to do normal things, because that is when I get to interact with people as well. Preferably not amongst the underwear, though."
-                    , 0)
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1,
+                -1,
+                "Getting stopped in the middle of the lingerie section, when you're trying to stock up on a few things, by an older man who wants a selfie is a little bit awkward... but I don't let that get in the way of me trying to do normal things, because that is when I get to interact with people as well. Preferably not amongst the underwear, though."
+                ,
+                0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
-                "Music has generally involved a lot of awkward contraptions, a certain amount of heavy lifting.", 0)
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1,
+                -1,
+                "Music has generally involved a lot of awkward contraptions, a certain amount of heavy lifting.",
+                0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
         if (id == 9) { /* beautiful */
-            var categoryDetailsClass = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass = CategoryDetailsClass(
+                -1, -1,
                 "A beautiful body perishes, but a work of art dies not."
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1, "The most beautiful things in the world cannot be seen or even touched, they must be felt with the heart.\n"
-                    , 0)
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1,
+                -1,
+                "The most beautiful things in the world cannot be seen or even touched, they must be felt with the heart.\n"
+                ,
+                0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
-                "Nothing can be beautiful which is not true." , 0)
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1, -1,
+                "Nothing can be beautiful which is not true.", 0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
 
         if (id == 11) { /* Bike */
-            var categoryDetailsClass = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass = CategoryDetailsClass(
+                -1, -1,
                 "Don’t buy upgrades, ride up grades – Eddy Merckx"
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1, -1,
                 "Ride as much or as little, as long or as short as you feel. But ride – Eddy Merckx"
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
-                "It never gets easier, you just get faster – Greg LeMond" , 0)
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1, -1,
+                "It never gets easier, you just get faster – Greg LeMond", 0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
         if (id == 13) { /* Brother */
-            var categoryDetailsClass = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass = CategoryDetailsClass(
+                -1, -1,
                 "My brother is my only best friend. No one can replace him."
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(0, categoryDetailsClass)
 
-            var categoryDetailsClass5 = CategoryDetailsClass(-1, -1,
+            var categoryDetailsClass5 = CategoryDetailsClass(
+                -1, -1,
                 "Sometimes being a brother is even better than being a superhero. – Marc Brown"
-                    , 0)
+                , 0
+            )
             categoryDetailsClassArrayList.add(5, categoryDetailsClass5)
 
-            var categoryDetailsClasslast = CategoryDetailsClass(-1, -1,
-                "Brothers are what best friends can never be.", 0)
+            var categoryDetailsClasslast = CategoryDetailsClass(
+                -1, -1,
+                "Brothers are what best friends can never be.", 0
+            )
             categoryDetailsClassArrayList.add(categoryDetailsClasslast)
 
         }
@@ -240,7 +291,8 @@ class CategeryDetailsActivity : AppCompatActivity() {
 
 
                             rnds = (0 until imagelist.size).random()
-                            view.imageLayout.background = context.resources.getDrawable(imagelist[rnds])
+                            view.imageLayout.background =
+                                context.resources.getDrawable(imagelist[rnds])
                         }
 
                         view.copyBtn.setOnClickListener {
@@ -257,7 +309,7 @@ class CategeryDetailsActivity : AppCompatActivity() {
                         }
 
                         view.fontBtn.setOnClickListener {
-showFontStyleBottomAlert(view)
+                            showFontStyleBottomAlert(view)
                         }
 
                         view.colorPickerBtn.setOnClickListener {
@@ -273,7 +325,8 @@ showFontStyleBottomAlert(view)
                             colorPickerDialog.show();
                         }
                         view.shareBtn.setOnClickListener {
-                            view.imageLayout.background = context.resources.getDrawable(imagelist[rnds])
+                            view.imageLayout.background =
+                                context.resources.getDrawable(imagelist[rnds])
 
                             view.imageLayout.isDrawingCacheEnabled = true
 
@@ -403,7 +456,6 @@ showFontStyleBottomAlert(view)
 
 
     }
-
 
 
 }
