@@ -114,9 +114,13 @@
 
                 <TextView
                     android:id="@+id/textQuotesTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minWidth="@dimen/_200sdp"
+                    android:minHeight="@dimen/_100sdp"
                     android:text="Write Here"
+
+                    android:background="#CC000000"
                     android:paddingRight="@dimen/_15sdp"
                     android:paddingLeft="@dimen/_15sdp"
                     android:paddingTop="@dimen/_8sdp"

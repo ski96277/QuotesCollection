@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.chinalwb:are:0.1.7@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/246b71e91d96b1df523153b56600adb6/jetified-are-0.1.7/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/246b71e91d96b1df523153b56600adb6/jetified-are-0.1.7/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/246b71e91d96b1df523153b56600adb6/jetified-are-0.1.7/jars/libs/tagsoup-1.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79d2bf2913ff797f8070964e16ebd7f/jetified-are-0.1.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79d2bf2913ff797f8070964e16ebd7f/jetified-are-0.1.7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79d2bf2913ff797f8070964e16ebd7f/jetified-are-0.1.7/jars/libs/tagsoup-1.2.1.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chinalwb/are/0.1.7/236e11939a292dd64369c84408d467f17fa27f52/are-0.1.7-javadoc.jar!/" />
