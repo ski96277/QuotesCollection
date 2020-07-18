@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:are="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,10 +24,10 @@
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:gravity="left|center"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:orientation="vertical">
 
 
                 <TextView
@@ -37,8 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="Category"
-                    android:textColor="@android:color/white"
-                    />
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
@@ -55,18 +53,26 @@
         android:visibility="visible"
         tools:listitem="@layout/item_category" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="@dimen/_60sdp"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_gravity="right"
-        android:id="@+id/fabIcon"
-        android:backgroundTint="@color/colorPrimaryDark"
-        app:rippleColor="@color/colorPrimaryDark"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_40sdp"
-        android:src="@drawable/ic_edit_black_24dp" />
+        android:background="@drawable/floating_button_icon_background"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/_2sdp"
+        android:layout_alignParentBottom="true"
+        app:rippleColor="@color/colorPrimaryDark">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            app:fabSize="normal"
+            android:src="@drawable/floating_icon"
+            android:backgroundTint="@android:color/white"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

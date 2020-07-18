@@ -1,8 +1,10 @@
 package imransk.ml.SayingsQuotes.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -20,6 +22,7 @@ import android.view.*
 import android.view.View.*
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,8 +47,8 @@ class WriteOwnQuotes : AppCompatActivity() {
 
     lateinit var imageAdapter: ImageAdapter
     lateinit var imagelist: ArrayList<Int>
-     var xDelta:Int = 0
-    var yDelta : Int = 0
+    var xDelta: Int = 0
+    var yDelta: Int = 0
 
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -150,76 +153,25 @@ class WriteOwnQuotes : AppCompatActivity() {
 
         //delete background
         deleteIconIV.setOnClickListener {
-            SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Are you sure?")
-                .setContentText("Are You Sure To Remove Background Image ?")
-                .setConfirmClickListener { sDialog ->
-                    sDialog.dismissWithAnimation()
+
+            var alertDialogBuilder = AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage("Are You Sure To Remove Background Image ?");
+            alertDialogBuilder.setPositiveButton(
+                "yes",
+                DialogInterface.OnClickListener { dialog, _ ->
+
                     imageLayout.setBackgroundColor(context.resources.getColor(R.color.colorPrimaryDark))
-                }
-                .setCancelText("NO")
-                .setCancelClickListener { sweetAlertDialog ->
-                    sweetAlertDialog.dismissWithAnimation()
-                }
-                .show()
-        }
-        saveIcoTV.setOnClickListener {
-            var st = textQuotesTV.text
+                    dialog.dismiss()
 
-            if (st.isEmpty() or (st == "Write Here Again") or (st == "Write Here")){
+                })
 
-                Toast.makeText(context, "Write Some Things New", Toast.LENGTH_SHORT).show();
-                return@setOnClickListener
-            }
+            alertDialogBuilder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            };
 
-            imageLayout.isDrawingCacheEnabled = true
+            var alertDialog = alertDialogBuilder . create ();
+            alertDialog.show();
 
-            val tvImage: Bitmap = Bitmap.createBitmap(imageLayout.drawingCache)
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                //check the permission
-                if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
-                    checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                ) {
-
-                    SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Alert !")
-                        .setContentText("Do you want to save ?")
-                        .setConfirmText("YES")
-                        .setConfirmClickListener { sDialog ->
-                            sDialog.dismissWithAnimation()
-                            saveToInternalStorage(tvImage)
-
-                        }
-                        .setCancelText("NO")
-                        .setCancelClickListener { sweetAlertDialog ->
-                            sweetAlertDialog.dismissWithAnimation()
-                        }
-                        .show()
-                } else {
-                    ActivityCompat.requestPermissions(
-                        this, arrayOf(
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                        ), StaticClass.STROAGE_CODE
-                    )
-                }
-            } /*else {
-                SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                    .setTitleText("Alert !")
-                    .setContentText("Do you want to save ?")
-                    .setConfirmText("YES")
-                    .setConfirmClickListener { sDialog ->
-                        sDialog.dismissWithAnimation()
-                        saveToInternalStorage(tvImage)
-
-                    }
-                    .setCancelText("NO")
-                    .setCancelClickListener { sweetAlertDialog ->
-                        sweetAlertDialog.dismissWithAnimation()
-                    }
-                    .show()
-            }*/
 
         }
         writeIconIV.setOnClickListener {
@@ -229,16 +181,7 @@ class WriteOwnQuotes : AppCompatActivity() {
         textQuotesTV.setOnClickListener {
             showEnterTextDialog();
         }
-        /*//move text view
-        textQuotesTV.setOnTouchListener(OnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_MOVE) {
-                // Offsets are for centering the TextView on the touch location
-                v.x = event.rawX - v.width / 2.0f
-                v.y = event.rawY - v.height / 2.0f
-            }
-            true
-        })
-        */
+
         textQuotesTV.setOnTouchListener(onTouchListener())
 
 
@@ -250,39 +193,38 @@ class WriteOwnQuotes : AppCompatActivity() {
             var imageLayout = findViewById<LinearLayout>(R.id.imageLayout)
             var st = textQuotesTV.text
 
-            if (st.isEmpty() or (st == "Write Here Again") or (st == "Write Here")){
+            if (st.isEmpty() or (st == "Write Here Again") or (st == "Write Here")) {
                 Toast.makeText(context, "Write Some Quotes", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             textQuotesTV.text = st
             imageLayout.isDrawingCacheEnabled = true
 
-            val tvImage: Bitmap = Bitmap.createBitmap(imageLayout.drawingCache)
             try {
-                tvImage.compress(
-                    Bitmap.CompressFormat.PNG,
-                    100,
-                    FileOutputStream(
-                        Environment.getExternalStorageDirectory().toString() + "/tvimage.png"
+                val tvImage: Bitmap = Bitmap.createBitmap(imageLayout.drawingCache)
+
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.type = "image/PNG"
+                val bitmapPath =
+                    MediaStore.Images.Media.insertImage(
+                        context.contentResolver,
+                        tvImage,
+                        "title",
+                        null
                     )
-                )
-            } catch (e: FileNotFoundException) {
-                Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show()
-                e.printStackTrace()
+
+                val bitmapUri: Uri = Uri.parse(bitmapPath)
+
+                sendIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
+
+                context.startActivity(sendIntent);
+
+
+            } catch (e: java.lang.Exception) {
+
             }
 
-
-            val sendIntent = Intent()
-            sendIntent.action = Intent.ACTION_SEND
-            sendIntent.type = "image/PNG"
-            val bitmapPath =
-                MediaStore.Images.Media.insertImage(context.contentResolver, tvImage, "title", null)
-
-            val bitmapUri: Uri = Uri.parse(bitmapPath)
-
-            sendIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
-
-            context.startActivity(sendIntent);
 
         }
         pictureLayout.setOnClickListener {
@@ -311,6 +253,7 @@ class WriteOwnQuotes : AppCompatActivity() {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun onTouchListener(): OnTouchListener? {
         return OnTouchListener { view, event ->
             val x = event.rawX.toInt()
@@ -322,11 +265,12 @@ class WriteOwnQuotes : AppCompatActivity() {
                     xDelta = x - lParams.leftMargin
                     yDelta = y - lParams.topMargin
                 }
-                MotionEvent.ACTION_UP ->{/*Toast.makeText(
+                MotionEvent.ACTION_UP -> {/*Toast.makeText(
                     this@WriteOwnQuotes,
                     "thanks for new location!", Toast.LENGTH_SHORT
                 )
-                    .show()*/}
+                    .show()*/
+                }
                 MotionEvent.ACTION_MOVE -> {
                     val layoutParams = view
                         .layoutParams as LinearLayout.LayoutParams

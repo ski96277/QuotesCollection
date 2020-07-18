@@ -222,30 +222,24 @@ class BanglaQuotesActivity : AppCompatActivity() {
 
                             view.imageLayout.isDrawingCacheEnabled = true
 
-                            val tvImage: Bitmap = Bitmap.createBitmap( view.imageLayout.drawingCache)
                             try {
-                                tvImage.compress(
-                                    Bitmap.CompressFormat.PNG,
-                                    100,
-                                    FileOutputStream(Environment.getExternalStorageDirectory().toString() + "/tvimage.png")
-                                )
+
+                                val tvImage: Bitmap = Bitmap.createBitmap( view.imageLayout.drawingCache)
+                                val sendIntent = Intent()
+                                sendIntent.action = Intent.ACTION_SEND
+                                sendIntent.type = "image/PNG"
+                                val bitmapPath =
+                                    MediaStore.Images.Media.insertImage(context.contentResolver, tvImage, "title", null)
+                                val bitmapUri: Uri = Uri.parse(bitmapPath)
+                                sendIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
+                                context.startActivity(sendIntent);
+
                             } catch (e: FileNotFoundException) {
-                                Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show()
+
                                 e.printStackTrace()
                             }
 
 
-                            val sendIntent = Intent()
-                            sendIntent.action = Intent.ACTION_SEND
-                            sendIntent.type = "image/PNG"
-                            val bitmapPath =
-                                MediaStore.Images.Media.insertImage(context.contentResolver, tvImage, "title", null)
-
-                            val bitmapUri: Uri = Uri.parse(bitmapPath)
-
-                            sendIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
-
-                            context.startActivity(sendIntent);
 
                         }
 

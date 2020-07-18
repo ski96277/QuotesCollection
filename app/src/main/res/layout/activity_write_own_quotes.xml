@@ -23,65 +23,65 @@
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/deleteIconIV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/ic_delete_black_24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/saveIcoTV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/saveIcoTV" />
-
-                <TextView
-                    android:id="@+id/saveIcoTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@drawable/savebuttonshap"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Save"
-                    android:textColor="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/shareIcoTV"
-                    app:layout_constraintStart_toEndOf="@+id/deleteIconIV"
-                    app:layout_constraintTop_toTopOf="@+id/shareIcoTV" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/shareIcoTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="27dp"
-                    android:layout_marginLeft="27dp"
-                    android:background="@drawable/savebuttonshap"
+                    <ImageButton
+                        android:id="@+id/deleteIconIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_delete_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/shareIcoTV"
+                        app:layout_constraintEnd_toStartOf="@+id/saveIcoTV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/saveIcoTV" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Share"
-                    android:textColor="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/writeIconIV"
-                    app:layout_constraintStart_toEndOf="@+id/saveIcoTV"
-                    app:layout_constraintTop_toTopOf="@+id/writeIconIV" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <ImageView
+                    <ImageButton
+                        android:id="@+id/shareIcoTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:src="@drawable/ic_share_black_24dp"
+                        android:text="Share"
+                        android:textColor="@android:color/white"/>
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageButton
                     android:id="@+id/writeIconIV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:src="@drawable/ic_edit_black_24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/shareIcoTV"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/ic_edit_black_24dp"/>
+            </LinearLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
